@@ -8,11 +8,17 @@ WSGI_APPLICATION = 'config.wsgi.deploy.application'
 
 # Static URLs
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static_root')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
 
 # 배포모드니까 DEBUG는 False
 DEBUG = False
 ALLOWED_HOSTS = config_secret_deploy['django']['allowed_hosts']
 
+
+DATABASES = config_secret_deploy['django']['databases']
+
 print('@@@@@@ DEBUG:', DEBUG)
 print('@@@@@@ ALLOWED_HOSTS:', ALLOWED_HOSTS)
+print(DATABASES)
